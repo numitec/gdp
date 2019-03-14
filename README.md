@@ -1,12 +1,3 @@
-<style>
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-</style>
-
 <p align="center">
   <img alt="Guía de Peliculones" src="./src/assets/images/icon.png" height="85" width="85" />
   <h3 align="center">Guía de Peliculones</h3>
@@ -16,7 +7,9 @@
 
 App React Native con una guía de cine que consulta, cuando puede y quiere, la API de The Movie Database (TMDb), basada en https://github.com/brentvatne/cine-the-guide-movie.
 
-<img src="./resources/demo.jpg" height="185" width="85" class="center">
+<p align="center">
+<img src="./resources/demo.jpg" height="385" width="175">
+</p>
 
 Pasos para arrancar la app:
 
