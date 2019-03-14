@@ -1,3 +1,12 @@
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+
 <p align="center">
   <img alt="Guía de Peliculones" src="./src/assets/images/icon.png" height="85" width="85" />
   <h3 align="center">Guía de Peliculones</h3>
@@ -7,18 +16,16 @@
 
 App React Native con una guía de cine que consulta, cuando puede y quiere, la API de The Movie Database (TMDb), basada en https://github.com/brentvatne/cine-the-guide-movie.
 
-<center>
-<img alt="Guía de Peliculones" src="./resources/demo.jpg" height="185" width="85" />
-</center>
+<img src="./resources/demo.jpg" height="185" width="85" class="center">
 
 Pasos para arrancar la app:
 
 1. en el celular bajar la app Expo
 2. en la PC:
 
-2.1. instalar npm
-2.2. instalar expo:
-$ npm install expo-cli --global
+2.1. instalar npm<br />
+2.2. instalar expo:<br />
+$ npm install expo-cli --global<br />
 
   En un directorio, bajarse la app como siempre:
 
