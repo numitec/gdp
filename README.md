@@ -7,7 +7,7 @@
 
 App React Native con una guía de cine que consulta la API de The Movie Database (TMDb).
 
-![Cine: The Movie Guide](./resources/demo.png)
+![Cine: The Movie Guide](./resources/demo.jpg)
 
 ## APIs
 
