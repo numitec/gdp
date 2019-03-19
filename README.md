@@ -1,6 +1,6 @@
 <p align="center">
-  <img alt="Guía de Peliculones" src="./src/assets/images/icon.png" height="85" width="85" />
-  <h3 align="center">Guía de Peliculones</h3>
+  <img alt="Guía Pochoclera" src="./src/assets/images/icon.png" height="85" width="85" />
+  <h3 align="center">Guía Pochoclera</h3>
 </p>
 
 ---

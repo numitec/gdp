@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Guía de Películones",
-    "description": "Cine is your movie guide. The fastest and easiest way to find Movies, Actors and Series on your device. Know about ratings and reviews from The Movie Database (TMDb).",
-    "slug": "rn-gdp",
+    "name": "Guía Pochoclera",
+    "description": "Versión castellana de Cine - The Guide Movie: aplicación demostración en React Native que consulta estrenos y opiniones desde la API de The Movie Database (TMDb).",
+    "slug": "gdp",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": ["ios", "android"],
@@ -21,6 +21,6 @@
     "ios": {
       "supportsTablet": false
     },
-    "githubUrl": "https://github.com/numitec/rn-gdp"
+    "githubUrl": "https://github.com/numitec/gdp"
   }
 }

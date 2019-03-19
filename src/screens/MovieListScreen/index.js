@@ -96,7 +96,7 @@ export default class MovieListScreen extends Component {
       this.setState({ isLoading: true });
 
       let response = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=024d69b581633d457ac58359146c43f6&language=en-US&sort_by=${filterType}&page=${page}&release_date.lte=${date_release}&include_adult=${hasAdultContent}&with_release_type=1|2|3|4|5|6|7`
+        `https://api.themoviedb.org/3/discover/movie?api_key=024d69b581633d457ac58359146c43f6&language=es-ES&sort_by=${filterType}&page=${page}&release_date.lte=${date_release}&include_adult=${hasAdultContent}&with_release_type=1|2|3|4|5|6|7`
       );
 
       let data = await response.json();
@@ -141,7 +141,7 @@ export default class MovieListScreen extends Component {
             activeOpacity={0.5}
             onPress={this.actionLoadMore}
           >
-            <Text style={styles.loadingText}>Load more</Text>
+            <Text style={styles.loadingText}>Cargar más</Text>
           </TouchableOpacity>
         </View>
       );

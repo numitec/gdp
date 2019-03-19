@@ -16,10 +16,11 @@ const getImageApi = image => {
 
 const convertToDate = value => {
   const date = new Date(value);
-  return date.getFullYear() || '';
+  const monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+  return ( date.getMonth() ? monthNames[ date.getMonth() ] + ' ' : '' ) + date.getFullYear() || '';
 };
 
-const convertToUpperCaseFirstLetter = (str = language[str]) => {
+const convertToUpperCaseFirstLetter = (str = language[str] ) => {
   return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
 };
 
@@ -52,7 +53,7 @@ export default class ListItem extends React.PureComponent {
             />
             <View style={styles.item}>
               <View>
-                <Text numberOfLines={2} style={styles.textTitle}>
+                <Text numberOfLines={3} style={styles.textTitle}>
                   {item.title}
                 </Text>
                 <View style={[styles.textRow, styles.containerSubTitle]}>

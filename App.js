@@ -222,8 +222,8 @@ const MainNavigator =
         },
         {
           initialRouteName: 'Movie',
-          activeTintColor: '#F95F62',
-          inactiveTintColor: '#8190A5',
+          activeTintColor: '#000000',
+          inactiveTintColor: '#d0d0d0',
           shifting: true,
           barStyle: {
             backgroundColor: '#ffffff',

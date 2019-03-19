@@ -94,7 +94,7 @@ export default class MovieDetailsScreen extends Component {
     let m = mins % 60;
     h = h < 10 ? '0' + h : h;
     m = m < 10 ? '0' + m : m;
-    return h && m ? `${h}h ${m}m` : 'Uninformed';
+    return h && m ? `${h}h ${m}m` : 'No informado';
   }
 
   convertToGenre() {
@@ -103,7 +103,7 @@ export default class MovieDetailsScreen extends Component {
       ? genre.length > 1
         ? `${genre[0].name}, ${genre[1].name}`
         : genre[0].name
-      : 'Uninformed';
+      : 'No informado';
   }
 
   convertToUpperCaseFirstLetter(str) {
@@ -118,19 +118,19 @@ export default class MovieDetailsScreen extends Component {
         '/' +
         (date.getMonth() + 1) +
         '/' +
-        date.getFullYear() || 'Uninformed'
+        date.getFullYear() || 'No informado'
     );
   }
 
   convertToDolar(value) {
     return (
       '$' + value.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') ||
-      'Uninformed'
+      'No informado'
     );
   }
 
   convertAdult(value) {
-    return value === false ? 'Yes' : 'No' || 'Uninformed';
+    return value === false ? 'Sí' : 'No' || 'No informado';
   }
 
   getImageApi(image) {
@@ -152,7 +152,7 @@ export default class MovieDetailsScreen extends Component {
 
     try {
       let response = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=024d69b581633d457ac58359146c43f6&language=en-US&include_image_language=en,null&append_to_response=credits,videos,images`
+        `https://api.themoviedb.org/3/movie/${id}?api_key=024d69b581633d457ac58359146c43f6&language=es-ES&include_image_language=en,null&append_to_response=credits,videos,images`
       );
       let data = await response.json();
       this.setState({
@@ -206,7 +206,7 @@ export default class MovieDetailsScreen extends Component {
     if (video && video.site === 'YouTube') {
       navigate('WebView', { key: video.key });
     } else {
-      Alert.alert('Attention', 'This movie has no trailer to show.', [], {
+      Alert.alert('Advertencia', 'Esta película no tiene trailer.', [], {
         cancelable: true
       });
     }
@@ -217,20 +217,20 @@ export default class MovieDetailsScreen extends Component {
 
     if (isError) {
       Alert.alert(
-        'Attention',
-        'Something wrong has happened, please try again later.',
+        'Advertencia',
+        'Algo malo ocurrió... intenta en unos minutos.',
         [],
         { cancelable: true }
       );
     } else {
       Share.share(
         {
-          message: `${title}, know everything about this movie \u{1F37F}`,
+          message: `${title}, conoce todo sobre esta película \u{1F37F}`,
           url: `https://www.themoviedb.org/movie/${id}`,
-          title: 'AmoCinema'
+          title: 'Guía Pochoclera'
         },
         {
-          dialogTitle: `${title}, know everything about this movie \u{1F37F}`
+          dialogTitle: `${title}, conoce todo sobre esta película \u{1F37F}`
         }
       );
     }
@@ -250,7 +250,7 @@ export default class MovieDetailsScreen extends Component {
         return { showImage: !showImage };
       });
     } else {
-      Alert.alert('Attention', 'This movie has no photos to show.', [], {
+      Alert.alert('Advertencia', 'Esta película no tiene imágenes para mostrar.', [], {
         cancelable: true
       });
     }
@@ -327,62 +327,62 @@ export default class MovieDetailsScreen extends Component {
                 style={styles.movieFirstInfo}
               >
                 <View style={styles.movieInfo}>
-                  <Text style={styles.titleInfo}>Duration</Text>
+                  <Text style={styles.titleInfo}>Duración</Text>
                   <Text style={styles.subTitleInfo}>
                     {this.convertMinsToHrsMins(runtime)}
                   </Text>
                 </View>
                 <View style={styles.movieInfo}>
-                  <Text style={styles.titleInfo}>Genre</Text>
+                  <Text style={styles.titleInfo}>Género</Text>
                   <Text style={styles.subTitleInfo}>
                     {this.convertToGenre()}
                   </Text>
                 </View>
                 <View style={styles.movieInfo}>
-                  <Text style={styles.titleInfo}>Language</Text>
+                  <Text style={styles.titleInfo}>Idioma</Text>
                   <Text style={styles.subTitleInfo}>
                     {this.convertToUpperCaseFirstLetter(original_language)}
                   </Text>
                 </View>
                 <View style={styles.movieInfo}>
-                  <Text style={styles.titleInfo}>Release</Text>
+                  <Text style={styles.titleInfo}>Estreno</Text>
                   <Text style={styles.subTitleInfo}>
                     {this.convertToDate(release_date)}
                   </Text>
                 </View>
                 <View style={styles.movieInfo}>
-                  <Text style={styles.titleInfo}>Budget</Text>
+                  <Text style={styles.titleInfo}>Presupuesto</Text>
                   <Text style={styles.subTitleInfo}>
                     {this.convertToDolar(budget)}
                   </Text>
                 </View>
                 <View style={styles.movieInfo}>
-                  <Text style={styles.titleInfo}>Revenue</Text>
+                  <Text style={styles.titleInfo}>Ingresos</Text>
                   <Text style={styles.subTitleInfo}>
                     {this.convertToDolar(revenue)}
                   </Text>
                 </View>
                 <View style={styles.movieInfo}>
-                  <Text style={styles.titleInfo}>Adult</Text>
+                  <Text style={styles.titleInfo}>Adúlteros</Text>
                   <Text style={styles.subTitleInfo}>
                     {this.convertAdult(adult)}
                   </Text>
                 </View>
               </ScrollView>
               <View style={styles.movieSecondInfo}>
-                <Text style={styles.titleInfo}>Synopsis</Text>
+                <Text style={styles.titleInfo}>Sinopsis</Text>
                 <ReadMore
                   numberOfLines={3}
                   renderTruncatedFooter={renderTruncatedFooter}
                   renderRevealedFooter={renderRevealedFooter}
                 >
                   <Text style={styles.subTitleInfo}>
-                    {overview || 'Uninformed'}
+                    {overview || 'No informado'}
                   </Text>
                 </ReadMore>
               </View>
               <View style={styles.movieSecondInfo}>
-                <Text style={styles.titleInfo}>Main cast</Text>
+                <Text style={styles.titleInfo}>Elenco</Text>
                 <ListTeam
                   data={cast}
                   type="character"
@@ -392,7 +392,7 @@ export default class MovieDetailsScreen extends Component {
                 />
               </View>
               <View style={styles.movieSecondInfo}>
-                <Text style={styles.titleInfo}>Main technical team</Text>
+                <Text style={styles.titleInfo}>Equipo técnico</Text>
                 <ListTeam
                   data={crew}
                   type="job"
@@ -402,7 +402,7 @@ export default class MovieDetailsScreen extends Component {
                 />
               </View>
               <View style={[styles.movieSecondInfo, styles.movieLastInfo]}>
-                <Text style={styles.titleInfo}>Producer</Text>
+                <Text style={styles.titleInfo}>Productor</Text>
                 <ListTeam
                   data={production_companies}
                   type="production"
@@ -440,7 +440,7 @@ export default class MovieDetailsScreen extends Component {
 const renderTruncatedFooter = handlePress => {
   return (
     <TouchableOpacity activeOpacity={0.5} onPress={handlePress}>
-      <Text style={styles.readMore}>Read more</Text>
+      <Text style={styles.readMore}>Leer más</Text>
     </TouchableOpacity>
   );
 };
@@ -448,7 +448,7 @@ const renderTruncatedFooter = handlePress => {
 const renderRevealedFooter = handlePress => {
   return (
     <TouchableOpacity activeOpacity={0.5} onPress={handlePress}>
-      <Text style={styles.readMore}>Read less</Text>
+      <Text style={styles.readMore}>Ocultar</Text>
     </TouchableOpacity>
   );
 };
