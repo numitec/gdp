@@ -46,7 +46,7 @@ export default class TeamDetail extends Component {
       let response = await fetch(
         `https://api.themoviedb.org/3/person/${parseInt(
           credit_id
-        )}?api_key=024d69b581633d457ac58359146c43f6&language=en-US`
+        )}?api_key=024d69b581633d457ac58359146c43f6&language=es-ES`
       );
       let data = await response.json();
 
@@ -54,12 +54,12 @@ export default class TeamDetail extends Component {
         isLoading: false,
         isError: false,
         profile_path: data.profile_path || '',
-        name: data.name || 'Uninformed name',
+        name: data.name || 'No informado',
         known_for_department:
-          data.known_for_department || 'Uninformed department',
+          data.known_for_department || 'Desconocido',
         birthday: data.birthday || '',
-        place_of_birth: data.place_of_birth || 'Uninformed place of birth',
-        biography: data.biography || 'Uninformed'
+        place_of_birth: data.place_of_birth || 'No informado',
+        biography: data.biography || 'Sin datos'
       });
     } catch (err) {
       this.setState({
@@ -97,7 +97,7 @@ export default class TeamDetail extends Component {
                 style={styles.button}
                 onPress={actionClose}
               >
-                <Text style={styles.buttonText}>Close</Text>
+                <Text style={styles.buttonText}>Cerrar</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -138,7 +138,7 @@ export default class TeamDetail extends Component {
                   </View>
                 </View>
               </View>
-              <Text style={styles.titleInfo}>Biography</Text>
+              <Text style={styles.titleInfo}>Biografía</Text>
               <Text
                 style={[
                   styles.textSmall,
@@ -155,7 +155,7 @@ export default class TeamDetail extends Component {
                 style={styles.button}
                 onPress={actionClose}
               >
-                <Text style={styles.buttonText}>Close</Text>
+                <Text style={styles.buttonText}>Cerrar</Text>
               </TouchableOpacity>
             </View>
           </View>

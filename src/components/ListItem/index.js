@@ -16,7 +16,7 @@ const getImageApi = image => {
 
 const convertToDate = value => {
   const date = new Date(value);
-  const monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+  const monthNames = [ "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Set", "Oct", "Nov", "Dic" ];
   return ( date.getMonth() ? monthNames[ date.getMonth() ] + ' ' : '' ) + date.getFullYear() || '';
 };
 
